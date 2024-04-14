@@ -23,8 +23,8 @@ def ReadInFurnishedFinderHousingRequestsEmails():
     mail.login (emailUsername, emailPassword)
     mail.select ('inbox') 
 
-    # Searches for emails that contains "software@venturebnb.io" and has a subject with "Traveler Housing Request"
-    status, searchData = mail.search(None, '(FROM "software@venturebnb.io") (SUBJECT "Traveler Housing Request")')
+    # Searches for emails that contains "<from>" and has a subject with "Traveler Housing Request"
+    status, searchData = mail.search(None, '(FROM "<from>") (SUBJECT "<subject>")')
 
     # This prints only if no emails are found
     if status != 'OK':
@@ -84,7 +84,7 @@ def PullInformationFromEmailsAndPutIntoDataframe(emails):
 
 if __name__ == '__main__':
     
-    # 1 - Read in 20 emails from your personal email and pull out any emails that are from "software@venturebnb.io"
+    # 1 - Read in 20 emails from your personal email and pull out any emails that are from "<from>"
     # and include "Traveler Housing Request" in the subject line
     emails = ReadInFurnishedFinderHousingRequestsEmails()
 
